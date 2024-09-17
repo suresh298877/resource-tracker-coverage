@@ -141,7 +141,7 @@ def records(request):
         if request.GET.get('tldr', None):
             data = data.filter(tldr=request.GET.get('tldr', None))
 
-        page_obj = Paginator(data, 50)
+        page_obj = Paginator(data, 3)
         page_list = request.GET.get("page")
         page = page_obj.get_page(page_list)
         context = {
