@@ -84,172 +84,193 @@
     <thead style="color: white; font-family: Arial, Helvetica, sans-serif; position: sticky; top: 0px;">
       <tr>
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Psm" name="sort">
+          <input type="hidden" value="psm" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th class="sticky-col"
             style="position: sticky; left : 0px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Psm</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Psm</button>
           </th>
         </form>
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Region" name="sort">
+          <input type="hidden" value="region" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th class="sticky-col"
             style="position: sticky; left : 99.14px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Region</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Region</button>
           </th>
         </form>
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Domain" name="sort">
+          <input type="hidden" value="domain" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th class="sticky-col"
             style="position: sticky; left : 212.65px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Domain</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Domain</button>
           </th>
         </form>
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Location" name="sort">
+          <input type="hidden" value="location" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th class="sticky-col"
             style="position: sticky; left : 377.98px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Location</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Location</button>
           </th>
         </form>
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Category" name="sort">
+          <input type="hidden" value="category" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Category</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Category</button>
           </th>
         </form>
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Priority" name="sort">
+          <input type="hidden" value="priority" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Priority</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Priority</button>
           </th>
         </form>
 
-
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Console" name="sort">
+          <input type="hidden" value="console" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Console</button>
-          </th>
-        </form>
-
-
-        <form action="{% url 'records' %}">
-          <input type="hidden" value="Operator" name="sort">
-          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
-            <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Operator</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Console</button>
           </th>
         </form>
 
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Psm_Owner" name="sort">
+          <input type="hidden" value="operator" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Psm_Owner</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Operator</button>
           </th>
         </form>
 
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Comments" name="sort">
+          <input type="hidden" value="psm_owner" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Comments</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Psm_Owner</button>
           </th>
         </form>
 
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Status" name="sort">
+          <input type="hidden" value="comments" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Status</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Comments</button>
           </th>
         </form>
 
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Last_Updated_Datetime" name="sort">
+          <input type="hidden" value="status" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Last_Updated_Datetime</button>
-          </th>
-        </form>
-
-        <form action="{% url 'records' %}">
-          <input type="hidden" value="Is_Skip" name="sort">
-          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
-            <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Is_Skip</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Status</button>
           </th>
         </form>
 
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Color" name="sort">
+          <input type="hidden" value="last_updated_datetime" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Color</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Last_Updated_Datetime</button>
           </th>
         </form>
 
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Coverage_Type" name="sort">
+          <input type="hidden" value="is_skip" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Coverage_Type</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Is_Skip</button>
           </th>
         </form>
 
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Protection_Mode" name="sort">
+          <input type="hidden" value="color" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Protection_Mode</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Color</button>
           </th>
         </form>
 
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Alarm_Mode" name="sort">
+          <input type="hidden" value="coverage_type" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Alarm_Mode</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Coverage_Type</button>
           </th>
         </form>
 
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Alarm_Mode" name="sort">
+          <input type="hidden" value="protection_mode" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Coverage_Status</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Protection_Mode</button>
           </th>
         </form>
 
 
         <form action="{% url 'records' %}">
-          <input type="hidden" value="Tldr" name="sort">
+          <input type="hidden" value="alarm_mode" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
           <th style="border-right: 1px solid rgba(255, 255, 255,1);">
             <button type="submit" style="border: none; background-color: #80456b; color: white;"
-              title="click to sort">Tldr</button>
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Alarm_Mode</button>
           </th>
         </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="coverage_status" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Coverage_Status</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="tldr" name="sort">
+          <input type="hidden" name="order" value="{{order}}">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="{% if order is None or order == '' %}click to get latest data{% elif order == 'asc' %}click to sort in asc{% else %}click to sort in dsc{% endif %}">Tldr</button>
+          </th>
+        </form>
+
+
         <th>Action</th>
       </tr>
     </thead>

@@ -77,7 +77,6 @@ def exportToExcel(request):
 
 def records(request):
     if request.method == "GET":
-        print(request.GET.get('sort', None))
         data = models.Record.objects.all()
         if request.GET.get('psm', None):
             data = data.filter(psm=request.GET.get('psm', None))
@@ -112,9 +111,9 @@ def records(request):
         if request.GET.get('status', None):
             data = data.filter(status=request.GET.get('status', None))
 
-        if request.GET.get('last_update_datetime_for_record_4_unique_records', None):
-            data = data.filter(last_update_datetime_for_record_4_unique_records=request.GET.get(
-                'last_update_datetime_for_record_4_unique_records', None))
+        if request.GET.get('last_updated_datetime', None):
+            data = data.filter(last_updated_datetime=request.GET.get(
+                'last_updated_datetime', None))
 
         if request.GET.get('is_skip', None):
             data = data.filter(is_skip=request.GET.get('is_skip', None))
@@ -142,19 +141,33 @@ def records(request):
         if request.GET.get('tldr', None):
             data = data.filter(tldr=request.GET.get('tldr', None))
 
-        # sort_column = request.GET.get('sort', None)  # Default to a column if none is specified
-        # sort_order = request.GET.get('order', 'asc')  # Default to ascending order
+        # Default to a column if none is specified
+        sort_column = request.GET.get('sort', None)
+        sort_order = request.GET.get('order', None)
+        sort_by = None
 
-        # if sort_order == 'asc':
-        #     sort_by = sort_column
-        # else:
-        #     sort_by = f'-{sort_column}'
+        if sort_order == 'asc':
+            sort_by = sort_column
+        elif sort_order == 'dsc':
+            sort_by = f'-{sort_column}'
+
+        if sort_by != None and sort_by != '':
+            data = data.order_by(sort_by)
+
+        order = None
+        if sort_order == None or sort_order == "":
+            order = 'asc'
+        elif sort_order == 'asc':
+            order = 'dsc'
+        else:
+            order = ""
 
         page_obj = Paginator(data, 50)
         page_list = request.GET.get("page")
         page = page_obj.get_page(page_list)
         context = {
-            "page": page
+            "page": page,
+            'order': order
         }
 
         return render(request, 'records.html', context)

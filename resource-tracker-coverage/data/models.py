@@ -16,7 +16,7 @@ class Record(models.Model):
     psm_owner = models.CharField(max_length=50, null=True)
     comments = models.CharField(max_length=200, null=True)
     status = models.CharField(max_length=50, null=True)
-    last_update_datetime_for_record_4_unique_records = models.CharField(
+    last_updated_datetime = models.CharField(
         max_length=200, null=True)
     # new fields
     is_skip = models.BooleanField(default=False, null=True)
