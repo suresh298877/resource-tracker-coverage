@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block titile %}Records{% endblock %}
+{% block body %}
+<!-- <div> -->
+<h4 style="margin : 10px;">Filter the data :</h4>
+<form style="text-align : center;">
+  <div style="padding : 5px">
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="psm" placeholder="psm" />
+    </div>
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="region" placeholder="region" />
+    </div>
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="domain" placeholder="domain" />
+    </div>
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="location" placeholder="location" />
+    </div>
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="category" placeholder="category" />
+    </div>
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="priority" placeholder="priority" />
+    </div>
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="console" placeholder="console" />
+    </div>
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="operator" placeholder="operator" />
+    </div>
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="psm_owner" placeholder="psm_owner" />
+    </div>
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="comments" placeholder="comments" />
+    </div>
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="last_update_datetime_for_record_4_unique_records"
+        placeholder="last_update_datetime_for_record_4_unique_records" />
+      <div></div>
+    </div>
+
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="is_skip" placeholder="is_skip" />
+    </div>
+
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="color" placeholder="color" />
+    </div>
+
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="coverage_type" placeholder="coverage_type" />
+    </div>
+
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="protection_mode" placeholder="protection_mode" />
+    </div>
+
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="alarm_mode" placeholder="alarm_mode" />
+    </div>
+
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="coverage_status" placeholder="coverage_status" />
+    </div>
+
+    <div style="display : inline; margin-top : 5px">
+      <input type="text" style="margin-top : 5px;" name="tldr" placeholder="tldr" />
+    </div>
+
+    <div>
+      <button type="submit" style="margin-top : 5px; color : red; background-color: yellow;">
+        filter
+      </button>
+    </div>
+  </div>
+</form>
+
+
+
+<div class="table-container" style="width: 100vw;">
+  <table style="margin-left : auto; margin-right : auto;text-align : center;margin-top : 15px;"
+    class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th>Psm</th>
+        <th>Psm</th>
+        <th>Psm</th>
+        <th>Region</th>
+        <th>Domain</th>
+        <th>Location</th>
+        <th>Category</th>
+        <th>Priority</th>
+        <th>Console</th>
+        <th>Operator</th>
+        <th>psm_Owner</th>
+        <th>Comments</th>
+        <th>Status</th>
+        <th>Last update datetime for record 4 unique records</th>
+        <th>is_skip</th>
+        <th>color</th>
+        <th>coverage_type</th>
+        <th>protection_mode</th>
+        <th>alarm_mode</th>
+        <th>coverage_status</th>
+        <th>tldr</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in page.object_list %}
+      <tr>
+        <td>{{data.psm|default:''}}</td>
+        <td>{{data.psm|default:''}}</td>
+        <td>{{data.psm|default:''}}</td>
+        <td>{{data.region|default:''}}</td>
+        <td>{{data.domain|default:''}}</td>
+        <td>{{data.location|default:''}}</td>
+        <td>{{data.category|default:''}}</td>
+        <td>{{data.priority|default:''}}</td>
+        <td>{{data.console|default:''}}</td>
+        <td>{{data.operator|default:''}}</td>
+        <td>{{data.psm_owner|default:''}}</td>
+        <td>{{data.comments|default:''}}</td>
+        <td>{{data.status|default:''}}</td>
+        <td>{{data.last_update_datetime_for_record_4_unique_records|default:''}}</td>
+        <td>{{data.is_skip|default:''}}</td>
+        <td>{{data.color|default:''}}</td>
+        <td>{{data.coverage_type|default:''}}</td>
+        <td>{{data.protection_mode|default:''}}</td>
+        <td>{{data.alarm_mode|default:''}}</td>
+        <td>{{data.coverage_status|default:''}}</td>
+        <td>{{data.tldr|default:''}}</td>
+        <td>
+          <a style="text-decoration: none; color : red;" href="{% url 'deleteRecord' data.pk %}">Delete</a>
+          <a style="text-decoration: none; color : green;" href="{% url 'editRecord' data.pk %}">edit</a>
+        </td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<!-- </div> -->
+<nav>
+  <!-- <div class="ms-5">{{page.number}}/{{page.paginator.num_pages}}</div> -->
+  <ul style="list-style-type: none;text-align : center;">
+    <li style="display : inline; margin : 10px;">
+      {% if page.has_previous %}
+      <a href="{% url 'records' %}?page={{page.previous_page_number}}">Previous</a>
+      {% endif %}
+    </li>
+    {% for num_page in page.paginator.page_range %}
+
+    {% if num_page == page.number %}
+    <li style="display : inline; margin : 10px;">
+      <a style="text-decoration : none;" href="#">{{num_page}}/{{page.paginator.num_pages}}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+    <li style="display : inline; margin : 10px;">
+      {% if page.has_next %}
+      <a href="{% url 'records' %}?page={{page.next_page_number}}">Next</a>
+      {% endif %}
+    </li>
+  </ul>
+</nav>
+
+{% endblock %}

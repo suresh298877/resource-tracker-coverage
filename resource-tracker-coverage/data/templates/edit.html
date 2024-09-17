@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}edit data{% endblock %}
+{% block body %}
+<div style="text-align: center;">
+    <h2>Update the fields :</h2>
+    <form action="{% url 'editRecord' data.pk %}" method="post">
+        {% csrf_token %}
+        <div>
+            <table style="margin-left: auto; margin-right: auto;">
+                <thead>
+                    <th>Fields</th>
+                    <th>Values</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label for="psm">psm : </label></td>
+                        <td><input type="text" name="psm" id="psm" value="{{data.psm|default:''}}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="region">region : </label></td>
+                        <td><input type="text" name="region" id="region" value="{{data.region|default:''}}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="domain">domain : </label></td>
+                        <td><input type="text" name="domain" id="domain" value="{{data.domain|default:''}}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="location">location : </label></td>
+                        <td><input type="text" name="location" id="location" value="{{data.location|default:''}}" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="category">category : </label></td>
+                        <td><input type="text" name="category" id="category" value="{{data.category|default:''}}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="priority">priority : </label></td>
+                        <td><input type="text" name="priority" id="priority" value="{{data.priority|default:''}}" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="console">console : </label></td>
+                        <td><input type="text" name="console" id="console" value="{{data.console|default:''}}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="operator">operator : </label></td>
+                        <td><input type="text" name="operator" id="operator" value="{{data.operator|default:''}}" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="psm_owner">psm_owner : </label></td>
+                        <td><input type="text" name="psm_owner" id="owner" value="{{data.psm_owner|default:''}}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="comments">comments : </label></td>
+                        <td><input type="text" name="comments" id="comments" value="{{data.comments|default:''}}" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label
+                                for="last_update_datetime_for_record_4_unique_records">last_update_datetime_for_record_4_unique_records
+                                :
+                            </label></td>
+                        <td><input type="text" name="last_update_datetime_for_record_4_unique_records"
+                                id="last_update_datetime_for_record_4_unique_records"
+                                value="{{data.last_update_datetime_for_record_4_unique_records|default:''}}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="is_skip">is_skip : </label></td>
+                        <td><input type="text" name="is_skip" id="is_skip" value="{{data.is_skip}}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="color">color : </label></td>
+                        <td><input type="text" name="color" id="color" value="{{data.color|default:''}}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="coverage_type">coverage_type : </label></td>
+                        <td><input type="text" name="coverage_type" id="coverage_type"
+                                value="{{data.coverage_type|default:''}}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="protection_mode">protection_mode : </label></td>
+                        <td><input type="text" name="protection_mode" id="protection_mode"
+                                value={{data.protection_mode}} /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="alarm_mode">alarm_mode : </label></td>
+                        <td><input type="text" name="alarm_mode" id="alarm_mode" value="{{data.alarm_mode}}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="coverage_status">coverage_status : </label></td>
+                        <td><input type="text" name="coverage_status" id="coverage_status"
+                                value="{{data.coverage_status}}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="tldr">tldr : </label> </td>
+                        <td><input type="text" name="tldr" id="tldr" value="{{data.tldr|default:''}}" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" style="margin-bottom: 40px;">update</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
