@@ -77,6 +77,7 @@ def exportToExcel(request):
 
 def records(request):
     if request.method == "GET":
+        print(request.GET.get('sort', None))
         data = models.Record.objects.all()
         if request.GET.get('psm', None):
             data = data.filter(psm=request.GET.get('psm', None))
@@ -141,7 +142,15 @@ def records(request):
         if request.GET.get('tldr', None):
             data = data.filter(tldr=request.GET.get('tldr', None))
 
-        page_obj = Paginator(data, 3)
+        # sort_column = request.GET.get('sort', None)  # Default to a column if none is specified
+        # sort_order = request.GET.get('order', 'asc')  # Default to ascending order
+
+        # if sort_order == 'asc':
+        #     sort_by = sort_column
+        # else:
+        #     sort_by = f'-{sort_column}'
+
+        page_obj = Paginator(data, 50)
         page_list = request.GET.get("page")
         page = page_obj.get_page(page_list)
         context = {

@@ -81,44 +81,185 @@
 
 <div class="table-container">
   <table style="margin-left : auto; margin-right : auto;text-align : center;margin-top : 15px; max-width : 100%;">
-    <thead style=" color: white; font-family: Arial, Helvetica, sans-serif;">
+    <thead style="color: white; font-family: Arial, Helvetica, sans-serif; position: sticky; top: 0px;">
       <tr>
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Psm" name="sort">
+          <th class="sticky-col"
+            style="position: sticky; left : 0px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Psm</button>
+          </th>
+        </form>
 
-        <th class="sticky-col"
-          style="left : 0px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">Psm</th>
-        <th class="sticky-col"
-          style="left : 99.14px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">Region</th>
-        <th class="sticky-col"
-          style="left : 200.65px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">Domain</th>
-        <th class="sticky-col"
-          style="left : 365.98px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">Location
-        </th>
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Region" name="sort">
+          <th class="sticky-col"
+            style="position: sticky; left : 99.14px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Region</button>
+          </th>
+        </form>
 
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Category</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Priority</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Console</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Operator</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Psm_Owner</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Comments</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Status</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Last updated datetime</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Is_Skip</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Color</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Coverage_Type</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Protection_Mode</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Alarm_Mode</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Coverage_Status</th>
-        <th style="border-right: 1px solid rgba(255, 255, 255,1);">Tldr</th>
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Domain" name="sort">
+          <th class="sticky-col"
+            style="position: sticky; left : 212.65px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Domain</button>
+          </th>
+        </form>
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Location" name="sort">
+          <th class="sticky-col"
+            style="position: sticky; left : 377.98px; background-color: #80456b; border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Location</button>
+          </th>
+        </form>
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Category" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Category</button>
+          </th>
+        </form>
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Priority" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Priority</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Console" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Console</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Operator" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Operator</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Psm_Owner" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Psm_Owner</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Comments" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Comments</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Status" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Status</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Last_Updated_Datetime" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Last_Updated_Datetime</button>
+          </th>
+        </form>
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Is_Skip" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Is_Skip</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Color" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Color</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Coverage_Type" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Coverage_Type</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Protection_Mode" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Protection_Mode</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Alarm_Mode" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Alarm_Mode</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Alarm_Mode" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Coverage_Status</button>
+          </th>
+        </form>
+
+
+        <form action="{% url 'records' %}">
+          <input type="hidden" value="Tldr" name="sort">
+          <th style="border-right: 1px solid rgba(255, 255, 255,1);">
+            <button type="submit" style="border: none; background-color: #80456b; color: white;"
+              title="click to sort">Tldr</button>
+          </th>
+        </form>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       {% for data in page.object_list %}
       <tr>
-        <td class="sticky-col" style="left : 0px;">{{data.psm|default:''}}</td>
-        <td class="sticky-col" style="left : 99.14px;">{{data.region|default:''}}</td>
-        <td class="sticky-col" style="left : 200.65px;">{{data.domain|default:''}}</td>
-        <td class="sticky-col" style="left : 365.98px;">{{data.location|default:''}}</td>
+        <td class="sticky-col" style="position: sticky; left : 0px;">{{data.psm|default:''}}</td>
+        <td class="sticky-col" style="position: sticky; left : 99.14px;">{{data.region|default:''}}</td>
+        <td class="sticky-col" style="position: sticky; left : 212.65px;">{{data.domain|default:''}}</td>
+        <td class="sticky-col" style="position: sticky; left : 377.98px;">{{data.location|default:''}}</td>
 
         <td>{{data.category|default:''}}</td>
         <td>{{data.priority|default:''}}</td>
