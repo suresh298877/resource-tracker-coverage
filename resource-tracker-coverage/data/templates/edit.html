@@ -6,8 +6,8 @@
     <form action="{% url 'editRecord' data.pk %}" method="post">
         {% csrf_token %}
         <div>
-            <table style="margin-left: auto; margin-right: auto;">
-                <thead>
+            <table style="margin-left: auto; margin-right: auto;" class="edit-table">
+                <thead style="color : white;">
                     <th>Fields</th>
                     <th>Values</th>
                 </thead>
@@ -65,19 +65,30 @@
                         </td>
                     </tr>
 
+
                     <tr>
-                        <td><label
-                                for="last_update_datetime_for_record_4_unique_records">last_update_datetime_for_record_4_unique_records
+                        <td><label for="status">status : </label></td>
+                        <td>
+                            <input type="text" name="status" id="status" value="{{data.status|default:''}}" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="last_updated_datetime">last_updated_datetime
                                 :
                             </label></td>
-                        <td><input type="text" name="last_update_datetime_for_record_4_unique_records"
-                                id="last_update_datetime_for_record_4_unique_records"
-                                value="{{data.last_update_datetime_for_record_4_unique_records|default:''}}" /></td>
+                        <td><input type="text" name="last_updated_datetime" id="last_updated_datetime"
+                                value="{{data.last_updated_datetime|default:''}}" /></td>
                     </tr>
 
                     <tr>
                         <td><label for="is_skip">is_skip : </label></td>
-                        <td><input type="text" name="is_skip" id="is_skip" value="{{data.is_skip}}" /></td>
+                        <td>
+                            <select name="is_skip" id="is_skip">
+                                <option value="True" {% if data.is_skip == True %}selected{% endif %}>True</option>
+                                <option value="False" {% if data.is_skip == False %}selected{% endif %}>False</option>
+                            </select>
+                        </td>
                     </tr>
 
                     <tr>
@@ -93,19 +104,32 @@
 
                     <tr>
                         <td><label for="protection_mode">protection_mode : </label></td>
-                        <td><input type="text" name="protection_mode" id="protection_mode"
-                                value={{data.protection_mode}} /></td>
+                        <td>
+                            <select name="protection_mode" id="protection_mode">
+                                <option value="True" {% if data.protection_mode == True %}selected{% endif %}>True</option>
+                                <option value="False" {% if data.protection_mode == False %}selected{% endif %}>False</option>
+                            </select>
+                            </td>
                     </tr>
 
                     <tr>
                         <td><label for="alarm_mode">alarm_mode : </label></td>
-                        <td><input type="text" name="alarm_mode" id="alarm_mode" value="{{data.alarm_mode}}" /></td>
+                        <td>
+                            <select name="alarm_mode" id="alarm_mode">
+                                <option value="True" {% if data.alarm_mode == True %}selected{% endif %}>True</option>
+                                <option value="False" {% if data.alarm_mode == False %}selected{% endif %}>False</option>
+                            </select>
+                        </td>
                     </tr>
 
                     <tr>
                         <td><label for="coverage_status">coverage_status : </label></td>
-                        <td><input type="text" name="coverage_status" id="coverage_status"
-                                value="{{data.coverage_status}}" /></td>
+                        <td>
+                                <select name="coverage_status" id="coverage_status">
+                                    <option value="True" {% if data.coverage_status == True %}selected{% endif %}>True</option>
+                                    <option value="False" {% if data.coverage_status == False %}selected{% endif %}>False</option>
+                                </select>
+                        </td>
                     </tr>
 
                     <tr>
@@ -114,7 +138,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button type="submit" style="margin-bottom: 40px;">update</button>
+            <button class="btn btn-success" type="submit" style="margin-bottom: 40px;">update</button>
         </div>
     </form>
 </div>

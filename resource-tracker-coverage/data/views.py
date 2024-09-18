@@ -38,8 +38,8 @@ def uploadDAta(request):
                 obj.owner = row['psm_owner'] if row['psm_owner'] != "" else obj.psm_owner
                 obj.comments = row['comments'] if row['comments'] != "" else obj.comments
                 obj.status = row['status'] if row['status'] != "" else obj.status
-                obj.last_update_datetime_for_record_4_unique_records = row['last_update_datetime_for_record_4_unique_records'] if row[
-                    'last_update_datetime_for_record_4_unique_records'] != "" else obj.last_update_datetime_for_record_4_unique_records
+                obj.last_updated_datetime = row['last_updated_datetime'] if row[
+                    'last_updated_datetime'] != "" else obj.last_updated_datetime
                 obj.is_skip = row['is_skip'] if row['is_skip'] != "" else obj.is_skip
                 obj.color = row['color'] if row['color'] != "" else obj.color
                 obj.coverage_type = row['coverage_type'] if row['coverage_type'] != "" else obj.coverage_type
@@ -181,7 +181,7 @@ def deleteRecord(request, pk):
 def editRecord(request, pk):
     if request.method == "GET":
         data = models.Record.objects.get(pk=pk)
-
+        print(data.is_skip)
         return render(request, 'edit.html', {'data': data})
     else:
         psm = request.POST['psm']
@@ -194,8 +194,10 @@ def editRecord(request, pk):
         operator = request.POST['operator']
         psm_owner = request.POST['psm_owner']
         comments = request.POST['comments']
-        last_update_datetime_for_record_4_unique_records = request.POST[
-            'last_update_datetime_for_record_4_unique_records']
+        last_updated_datetime = request.POST[
+            'last_updated_datetime']
+        status = request.POST['status']
+        print(last_updated_datetime)
 
         is_skip = request.POST['is_skip']
         color = request.POST['color']
@@ -215,7 +217,8 @@ def editRecord(request, pk):
         obj.operator = operator
         obj.psm_owner = psm_owner
         obj.comments = comments
-        obj.last_update_datetime_for_record_4_unique_records = last_update_datetime_for_record_4_unique_records
+        obj.last_updated_datetime = last_updated_datetime
+        obj.status = status
         obj.is_skip = is_skip
         obj.color = color
         obj.coverage_type = coverage_type

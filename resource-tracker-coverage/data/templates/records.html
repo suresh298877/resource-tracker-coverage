@@ -2,71 +2,81 @@
 {% block titile %}Records{% endblock %}
 {% block body %}
 <!-- <div> -->
+
+<h4 style="margin : 10px;">Add more filters :</h4>
+<ul class="add-filter">
+</ul>
 <h4 style="margin : 10px;">Filter the data :</h4>
 <form style="text-align : center;">
   <div style="padding : 5px">
+
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="psm" placeholder="psm" />
+      <input type="text" id="psm" style="margin-top : 5px;" name="psm" placeholder="psm" />
     </div>
+
     <div style="display : inline; margin-top : 5px">
       <input type="text" style="margin-top : 5px;" name="region" placeholder="region" />
     </div>
+
     <div style="display : inline; margin-top : 5px">
       <input type="text" style="margin-top : 5px;" name="domain" placeholder="domain" />
     </div>
+
     <div style="display : inline; margin-top : 5px">
       <input type="text" style="margin-top : 5px;" name="location" placeholder="location" />
     </div>
+
+    <div style="display : inline; margin-top : 5px;">
+      <input type="text" id="filter-category" style="margin-top : 5px;" name="category" placeholder="category" />
+    </div>
+
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="category" placeholder="category" />
+      <input type="text" id="filter-priority" style="margin-top : 5px;" name="priority" placeholder="priority" />
     </div>
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="priority" placeholder="priority" />
+      <input type="text" id="filter-console" style="margin-top : 5px;" name="console" placeholder="console" />
     </div>
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="console" placeholder="console" />
+      <input type="text" id="filter-operator" style="margin-top : 5px;" name="operator" placeholder="operator" />
     </div>
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="operator" placeholder="operator" />
+      <input type="text" id="filter-psm_owner" style="margin-top : 5px;" name="psm_owner" placeholder="psm_owner" />
     </div>
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="psm_owner" placeholder="psm_owner" />
+      <input type="text" id="filter-comments" style="margin-top : 5px;" name="comments" placeholder="comments" />
     </div>
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="comments" placeholder="comments" />
-    </div>
-    <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="last_update_datetime_for_record_4_unique_records"
-        placeholder="last_update_datetime_for_record_4_unique_records" />
+      <input type="text" id="filter-last_updated_datetime" style="margin-top : 5px;" name="last_updated_datetime"
+        placeholder="last_updated_datetime" />
       <div></div>
     </div>
 
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="is_skip" placeholder="is_skip" />
+      <input type="text" id="filter-is_skip" style="margin-top : 5px;" name="is_skip" placeholder="is_skip" />
     </div>
 
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="color" placeholder="color" />
+      <input type="text" id="filter-color" style="margin-top : 5px;" name="color" placeholder="color" />
     </div>
 
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="coverage_type" placeholder="coverage_type" />
+      <input type="text" id="filter-coverage_type" style="margin-top : 5px;" name="coverage_type" placeholder="coverage_type" />
     </div>
 
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="protection_mode" placeholder="protection_mode" />
+      <input type="text" id="filter-protection_mode" style="margin-top : 5px;" name="protection_mode" placeholder="protection_mode" />
     </div>
 
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="alarm_mode" placeholder="alarm_mode" />
+      <input type="text" id="filter-alarm_mode" style="margin-top : 5px;" name="alarm_mode" placeholder="alarm_mode" />
     </div>
 
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="coverage_status" placeholder="coverage_status" />
+      <input type="text" id="filter-coverage_status" style="margin-top : 5px;" name="coverage_status" placeholder="coverage_status" />
     </div>
 
     <div style="display : inline; margin-top : 5px">
-      <input type="text" style="margin-top : 5px;" name="tldr" placeholder="tldr" />
+      <input type="text" id="filter-tldr" style="margin-top : 5px;" name="tldr" placeholder="tldr" />
     </div>
 
     <div>
@@ -289,7 +299,7 @@
         <td>{{data.psm_owner|default:''}}</td>
         <td>{{data.comments|default:''}}</td>
         <td>{{data.status|default:''}}</td>
-        <td>{{data.last_update_datetime_for_record_4_unique_records|default:''}}</td>
+        <td>{{data.last_updated_datetime|default:''}}</td>
         <td>{{data.is_skip|default:''}}</td>
         <td>{{data.color|default:''}}</td>
         <td>{{data.coverage_type|default:''}}</td>
@@ -298,8 +308,15 @@
         <td>{{data.coverage_status|default:''}}</td>
         <td>{{data.tldr|default:''}}</td>
         <td>
-          <a style="text-decoration: none; color : red;" href="{% url 'deleteRecord' data.pk %}">Delete</a>
-          <a style="text-decoration: none; color : green;" href="{% url 'editRecord' data.pk %}">edit</a>
+          <a class="btn btn-danger" href="{% url 'deleteRecord' data.pk %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+          </svg> Delete</a>
+          {% comment %} <a style="text-decoration: none; color : red;" href="{% url 'deleteRecord' data.pk %}">Delete</a> {% endcomment %}
+          <a class="btn btn-success" href="{% url 'editRecord' data.pk %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+          </svg> edit</a>
+          {% comment %} <a style="text-decoration: none; color : green;" href="{% url 'editRecord' data.pk %}">edit</a> {% endcomment %}
         </td>
       </tr>
 
